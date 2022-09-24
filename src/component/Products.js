@@ -11,9 +11,10 @@ function Products () {
     useEffect(() => {
         dispatch(fetchProducts());
     }, []);
-    console.log(products);
+    // console.log(products);
     return (
         <Container className='py-5'>
+            <h2>Our Products</h2>
             <Row className='mt-3 py-5'>
                 {
                     products.map(prod => (
@@ -21,9 +22,9 @@ function Products () {
                             <Card style={{ width: '18rem', height: '100%' }}>
                                 <Card.Img style={{height: '300px'}} variant="top" src={prod.image} />
                                 <Card.Body>
-                                    <Card.Title>{ prod.title }</Card.Title>
+                                    <Card.Title>{ prod.title.slice(0, 20) }...</Card.Title>
                                     <Card.Text>
-                                        { prod.description.slice(0, 60) }...
+                                        { prod.description.slice(0, 50) }...
                                     </Card.Text>
                                     <Card.Text className='bg-danger py-2 text-center text-light fw-bold'>
                                         ${ prod.price }
